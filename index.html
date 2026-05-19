@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>عيد ميلاد أمي ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0ff);
+    height:100vh;
+    color:white;
+}
+
+/* الصفحات */
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+    transition:1s;
+}
+
+/* الصفحة الأولى */
+
+#page1{
+    z-index:2;
+}
+
+#page1 h1{
+    font-size:42px;
+    text-align:center;
+    margin-bottom:30px;
+    text-shadow:0 0 15px rgba(255,255,255,.5);
+}
+
+.open-btn{
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4f81;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+.open-btn:hover{
+    transform:scale(1.1);
+}
+
+/* الصفحة الثانية */
+
+#page2{
+    opacity:0;
+    pointer-events:none;
+    text-align:center;
+}
+
+#page2.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.photo{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    overflow:hidden;
+    border:6px solid white;
+    box-shadow:0 0 30px rgba(255,255,255,.6);
+    margin-bottom:25px;
+    animation:float 4s ease-in-out infinite;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.message{
+    width:100%;
+    max-width:700px;
+    font-size:23px;
+    line-height:2.2;
+    font-weight:700;
+    padding:15px;
+    min-height:250px;
+    overflow-y:auto;
+    max-height:60vh;
+}
+
+/* القلوب */
+
+.hearts span{
+    position:absolute;
+    bottom:-50px;
+    color:white;
+    animation:hearts linear infinite;
+    opacity:.8;
+}
+
+@keyframes hearts{
+    0%{transform:translateY(0) rotate(0deg);opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* الموبايل */
+
+@media(max-width:600px){
+    body{overflow:auto;}
+    #page1 h1{font-size:30px;}
+    .photo{width:170px;height:170px;}
+    .message{font-size:19px;line-height:2;max-height:55vh;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<!-- الصفحة الأولى -->
+
+<div class="page" id="page1">
+
+    <h1>🎂 Happy Birthday to the world's best mom ❤️</h1>
+
+    <button class="open-btn" onclick="openGift()">click here🎁</button>
+
+</div>
+
+<!-- الصفحة الثانية -->
+
+<div class="page" id="page2">
+
+    <div class="photo">
+        <img src="mamaaa.jpeg">
+    </div>
+
+    <div class="message" id="text"></div>
+
+</div>
+
+<!-- الأغنية -->
+
+<audio id="song" loop>
+    <source src="mama.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+const message = `
+كل عام وانتي بخير وصحه وسلامه يا نور عيني ❤️
+
+وعقبال مليون سنه ف صحه وسعاده وفرح يا حبيبتي ✨
+
+عاوز اقولك بس ان لو فضلت اتكلم من هنا للصبح،
+مش هقدر اوصف حبي ليكي ❤️
+
+لكن وجودك معانا ووسطينا،
+احلي واجمل نعمه ربنا رزقني بيها 🤍
+
+مهما كبرت،
+هفضل محتاج لحبك وحنانك ❤️
+
+انتي الحضن الدافي،
+والقلب الطيب،
+والأمان اللي مهما الدنيا تتغير بيفضل ثابت جوايا ✨
+
+كل لحظه تعبتي فيها علشانا،
+وكل مره خوفتي علينا،
+وكل دعوه طلعتيها من قلبك،
+ربنا يجازيكي بيها كل خير يا حبيبتي ❤️
+
+
+بجد مهما الناس كلها اتغيرت،
+هفضل اشوفك انتي أجمل حاجه حصلتلي ف حياتي 🤍
+
+ضحكتك دي لوحدها كفايه تخليني انسي أي زعل،
+وكلامك دايماً بيرجعلي راحتي ❤️
+
+ربنا يديمك فوق رأسنا يا أمي،
+ويخليكي دايماً سعيده ومبسوطه وفرحانه ✨
+
+ويحققلك كل حاجه نفسك فيها،
+ويعوض قلبك عن أي تعب شوفتيه ❤️
+
+انتي مش بس أمي，
+انتي صاحبتي，
+وسندي，
+وأقرب حد لقلبي 🤍
+
+ولو لفيت الدنيا كلها，
+عمري ما هلاقي حد بحنانك ولا طيبتك ❤️
+
+بحب أقعد معاكي،
+واسمع صوتك،
+واشوف ضحكتك اللي بتنور الدنيا 😍
+
+ربنا يخليكي ليا،
+وميحرمنيش منك ابداً يا نور عيني ❤️
+
+بحبك اكتر من أي كلام ممكن يتقال 🤩❤️
+
+أول عيد ميلاد ليكي من 18 سنه مكنش معاكي فيه،
+وبعيد عنك… بس اللي غايب عن العين قريب من القلب ❤️
+
+والا انتي اي رأيك 😂❤️
+
+بحبك يا حبيبتي ❤️❤️❤️❤️
+`;
+
+function openGift(){
+
+    document.getElementById("page1").style.opacity = "0";
+    document.getElementById("page1").style.pointerEvents = "none";
+
+    document.getElementById("page2").classList.add("active");
+
+    const song = document.getElementById("song");
+    song.play();
+
+    let i = 0;
+
+    function typeWriter(){
+        if(i < message.length){
+            document.getElementById("text").innerHTML += message.charAt(i);
+            i++;
+            setTimeout(typeWriter,45);
+        }
+    }
+
+    typeWriter();
+}
+
+const hearts = document.querySelector(".hearts");
+
+for(let i=0;i<45;i++){
+    let heart = document.createElement("span");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*25+15) + "px";
+    heart.style.animationDuration = (Math.random()*5+5) + "s";
+    hearts.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
